@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client Hunter Pro | Chrome Extension SaaS Landing Page</title>
+  <meta name="description" content="Client Hunter Pro helps freelancers and agencies extract direct B2B leads from maps, Instagram, Fiverr, and more." />
+  <style>
+    :root{--bg:#0F172A;--card:#1E293B;--border:#334155;--text:#E2E8F0;--sub:#94A3B8;--emerald:#10B981;--purple:#8B5CF6;--pink:#EC4899;--blue:#38BDF8}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;background:radial-gradient(circle at top,#1e293b 0%,#0f172a 42%);color:var(--text)}
+    a{text-decoration:none;color:inherit}.wrap{width:min(1200px,calc(100% - 32px));margin:0 auto}.section{padding:88px 0;border-top:1px solid rgba(51,65,85,.5)}.section:first-child{border-top:0;padding-top:28px}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0}.brand{display:flex;align-items:center;gap:12px;font-weight:800}.logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--emerald),var(--blue));box-shadow:0 0 30px rgba(16,185,129,.35)}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;min-height:78vh}.eyebrow{display:inline-flex;padding:8px 12px;border:1px solid rgba(148,163,184,.25);border-radius:999px;color:var(--sub);background:rgba(30,41,59,.7)}h1{font-size:clamp(3rem,6vw,5.2rem);line-height:.96;margin:18px 0 16px;letter-spacing:-.05em}.lead{font-size:1.1rem;line-height:1.7;color:var(--sub);max-width:56ch}
+    .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}.btn{padding:15px 20px;border-radius:16px;font-weight:700;border:1px solid transparent;transition:.25s ease;display:inline-flex;align-items:center;justify-content:center}.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}.primary{background:linear-gradient(135deg,var(--emerald),#22c55e 48%,var(--blue));box-shadow:0 0 0 1px rgba(16,185,129,.15),0 14px 40px rgba(16,185,129,.28);animation:pulse 2.2s infinite}.secondary{background:rgba(15,23,42,.45);border-color:var(--border);color:var(--text)}@keyframes pulse{0%,100%{box-shadow:0 0 0 1px rgba(16,185,129,.15),0 14px 40px rgba(16,185,129,.22)}50%{box-shadow:0 0 0 1px rgba(16,185,129,.3),0 18px 60px rgba(16,185,129,.4)}}
+    .hero-panel{background:linear-gradient(180deg,rgba(30,41,59,.95),rgba(15,23,42,.95));border:1px solid rgba(51,65,85,.8);border-radius:28px;padding:24px;box-shadow:0 30px 80px rgba(2,6,23,.45)}.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.mini{background:rgba(15,23,42,.65);border:1px solid rgba(51,65,85,.8);border-radius:18px;padding:16px}.mini b{display:block;font-size:1.2rem}.mini span{color:var(--sub);font-size:.92rem}
+    .title{font-size:clamp(2rem,4vw,3.25rem);margin:0 0 12px}.subtitle{color:var(--sub);max-width:60ch;line-height:1.7;margin:0 0 24px}.proof-grid,.feature-grid,.pricing-grid{display:grid;gap:18px}.proof-grid{grid-template-columns:repeat(4,1fr)}.shot{height:180px;border-radius:22px;border:1px dashed rgba(148,163,184,.28);background:linear-gradient(135deg,rgba(30,41,59,.9),rgba(15,23,42,.9));display:grid;place-items:center;color:var(--sub);text-align:center;padding:16px}
+    .feature-grid{grid-template-columns:repeat(5,1fr)}.card{background:linear-gradient(180deg,rgba(30,41,59,.96),rgba(15,23,42,.95));border:1px solid var(--border);border-radius:24px;padding:22px;transition:.25s ease;box-shadow:0 16px 40px rgba(2,6,23,.24)}.card:hover{transform:translateY(-6px);border-color:rgba(56,189,248,.5);box-shadow:0 20px 50px rgba(56,189,248,.12)}.icon{font-size:1.8rem;margin-bottom:10px}.card h3{margin:0 0 10px}.card p,.muted{color:var(--sub);line-height:1.65}
+    .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.video{aspect-ratio:16/10;border-radius:22px;background:linear-gradient(135deg,#111827,#1e293b);border:1px solid var(--border);position:relative;overflow:hidden}.video:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 20%,rgba(236,72,153,.22),transparent 30%),radial-gradient(circle at 80% 30%,rgba(139,92,246,.25),transparent 28%),radial-gradient(circle at 50% 80%,rgba(56,189,248,.2),transparent 26%)}.play{position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-weight:800;text-shadow:0 2px 18px rgba(0,0,0,.4)}
+    .pricing-grid{grid-template-columns:repeat(4,1fr)}.price .amount{font-size:2rem;font-weight:900;margin:10px 0}.tag{display:inline-flex;padding:7px 10px;border-radius:999px;background:rgba(139,92,246,.18);color:#c4b5fd;border:1px solid rgba(139,92,246,.35);font-size:.85rem}.popular{border-color:rgba(139,92,246,.8);box-shadow:0 0 0 1px rgba(139,92,246,.15),0 0 30px rgba(139,92,246,.22)}.buy{width:100%;margin-top:18px;background:linear-gradient(135deg,var(--pink),var(--purple));color:#fff;box-shadow:0 10px 30px rgba(236,72,153,.25)}
+    footer{padding:32px 0 44px;border-top:1px solid rgba(51,65,85,.5);display:flex;justify-content:space-between;gap:18px;color:var(--sub)}
+    @media (max-width:1023px){.hero,.feature-grid,.pricing-grid,.video-grid,.proof-grid{grid-template-columns:1fr 1fr}.hero{min-height:auto;padding-top:24px}}
+    @media (max-width:639px){.hero,.feature-grid,.pricing-grid,.video-grid,.proof-grid{grid-template-columns:1fr}.section{padding:56px 0}.nav,footer{flex-direction:column;align-items:flex-start}.cta-row{width:100%}.btn{width:100%}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="nav">
+      <div class="brand"><div class="logo"></div><div>Client Hunter Pro</div></div>
+      <div class="muted">Premium Chrome Extension for direct client acquisition</div>
+    </header>
+
+    <section class="section hero">
+      <div>
+        <span class="eyebrow">Built for freelancers, agencies, and lead gen teams</span>
+        <h1>1 Hour of Work in Just 2 Minutes!</h1>
+        <p class="lead">The ultimate B2B lead generation and client hunting automation tool for freelancers and agencies. Extract thousands of high-paying direct clients instantly.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="https://wa.me/8801646644839?text=I%20want%20the%2048-hour%20trial%20for%20Client%20Hunter%20Pro">Start 48-Hour Trial (৳49)</a>
+          <a class="btn secondary" href="#tutorials">Watch Demo</a>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <div class="stat-grid">
+          <div class="mini"><b>10x Faster</b><span>Lead sourcing workflow</span></div>
+          <div class="mini"><b>High Intent</b><span>Direct client data</span></div>
+          <div class="mini"><b>Auto Extract</b><span>Maps, IG, Fiverr</span></div>
+          <div class="mini"><b>Premium UI</b><span>Built to convert</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="title">Trusted by 100+ Smart Freelancers</h2>
+      <p class="subtitle">Join the community that achieved 9+ sales in a single day!</p>
+      <div class="proof-grid">
+        <div class="shot">Success Screenshots &amp; Earnings</div>
+        <div class="shot">Success Screenshots &amp; Earnings</div>
+        <div class="shot">Success Screenshots &amp; Earnings</div>
+        <div class="shot">Success Screenshots &amp; Earnings</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="title">Powerful Features</h2>
+      <p class="subtitle">Everything you need to discover direct buyers faster, with less manual work and higher-quality outreach.</p>
+      <div class="feature-grid">
+        <div class="card"><div class="icon">📍</div><h3>Maps B2B Extractor</h3><p>Extract highly targeted local business leads.</p></div>
+        <div class="card"><div class="icon">📸</div><h3>Instagram Lead Hunter</h3><p>Automated email and phone extraction from IG profiles.</p></div>
+        <div class="card"><div class="icon">💎</div><h3>VIP Direct Clients</h3><p>Bypass directories like Yelp, YellowPages, Trustpilot.</p></div>
+        <div class="card"><div class="icon">🛒</div><h3>Fiverr Buyer Extractor</h3><p>Find direct contact info of Fiverr buyers.</p></div>
+        <div class="card"><div class="icon">🖼️</div><h3>Fiverr Thumbnail Hunter</h3><p>Find direct contact info of Fiverr Delivery Image.</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="tutorials">
+      <h2 class="title">See Client Hunter Pro in Action</h2>
+      <p class="subtitle">Watch short walkthroughs showing extraction, filtering, and client-ready lead capture flows.</p>
+      <div class="video-grid">
+        <div class="video"><div class="play">YouTube Tutorial Placeholder</div></div>
+        <div class="video"><div class="play">Google Drive Tutorial Placeholder</div></div>
+        <div class="video"><div class="play">YouTube Tutorial Placeholder</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="title">Simple Pricing</h2>
+      <p class="subtitle">Choose the access window that matches your lead gen sprint.</p>
+      <div class="pricing-grid">
+        <div class="card price"><div class="tag">Trial Plan</div><div class="amount">৳49</div><div class="muted">48 Hours Access, Full Features.</div><a class="btn buy" href="https://wa.me/8801646644839?text=Trial%20Plan%20-%20Client%20Hunter%20Pro">Buy Now</a></div>
+        <div class="card price"><div class="tag">Basic Plan</div><div class="amount">৳300</div><div class="muted">1 Month Access.</div><a class="btn buy" href="https://wa.me/8801646644839?text=Basic%20Plan%20-%20Client%20Hunter%20Pro">Buy Now</a></div>
+        <div class="card price popular"><div class="tag">Most Popular</div><div class="amount">৳600</div><div class="muted">3 Months Access.</div><a class="btn buy" href="https://wa.me/8801646644839?text=Standard%20Plan%20-%20Client%20Hunter%20Pro">Buy Now</a></div>
+        <div class="card price"><div class="tag">Pro Plan</div><div class="amount">৳1000</div><div class="muted">6 Months Access.</div><a class="btn buy" href="https://wa.me/8801646644839?text=Pro%20Plan%20-%20Client%20Hunter%20Pro">Buy Now</a></div>
+      </div>
+    </section>
+
+    <footer>
+      <div><div class="brand"><div class="logo"></div><div>Client Hunter Pro</div></div><div>Copyright 2026</div></div>
+      <div class="muted">Premium dark conversion landing page</div>
+    </footer>
+  </div>
+</body>
+</html>
