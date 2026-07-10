@@ -20,6 +20,29 @@
     footer{padding:32px 0 44px;border-top:1px solid rgba(51,65,85,.5);display:flex;justify-content:space-between;gap:18px;color:var(--sub)}
     @media (max-width:1023px){.hero,.feature-grid,.pricing-grid,.video-grid,.proof-grid{grid-template-columns:1fr 1fr}.hero{min-height:auto;padding-top:24px}}
     @media (max-width:639px){.hero,.feature-grid,.pricing-grid,.video-grid,.proof-grid{grid-template-columns:1fr}.section{padding:56px 0}.nav,footer{flex-direction:column;align-items:flex-start}.cta-row{width:100%}.btn{width:100%}}
+    
+    /* 🔥 Custom Gallery CSS */
+    .gallery-triggers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .gallery-card { text-align: center; cursor: pointer; border: 1px solid rgba(56,189,248,.3); background: linear-gradient(135deg, rgba(30,41,59,.9), rgba(15,23,42,.9)); }
+    .gallery-card:hover { border-color: var(--blue); box-shadow: 0 10px 30px rgba(56,189,248,.2); }
+    .view-btn { display: inline-block; margin-top: 15px; color: var(--blue); font-size: 0.9rem; font-weight: bold; background: rgba(56,189,248,.1); padding: 6px 12px; border-radius: 8px; }
+    
+    /* 🔥 Thumbnail Image Style (NEW) */
+    .gallery-thumb { width: 100%; height: 220px; object-fit: cover; object-position: top; border-radius: 12px; margin-bottom: 15px; border: 1px solid rgba(56,189,248,.3); transition: 0.3s; }
+    .gallery-card:hover .gallery-thumb { border-color: var(--blue); transform: scale(1.02); }
+
+    .lightbox { display: none; position: fixed; z-index: 9999; padding-top: 60px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(15, 23, 42, 0.95); backdrop-filter: blur(5px); }
+    .lightbox-content-wrapper { position: relative; margin: auto; width: 90%; max-width: 700px; text-align: center; }
+    .lightbox-img { max-width: 100%; max-height: 75vh; border-radius: 12px; border: 2px solid var(--border); box-shadow: 0 10px 40px rgba(0,0,0,0.5); object-fit: contain; }
+    .close-lightbox { color: white; position: absolute; top: 15px; right: 35px; font-size: 40px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+    .close-lightbox:hover { color: var(--pink); }
+    .prev-btn, .next-btn { cursor: pointer; position: absolute; top: 50%; width: auto; padding: 16px; margin-top: -50px; color: white; font-weight: bold; font-size: 24px; transition: 0.3s; border-radius: 8px; background: rgba(30, 41, 59, 0.8); user-select: none; }
+    .prev-btn { left: 20px; }
+    .next-btn { right: 20px; }
+    .prev-btn:hover, .next-btn:hover { background-color: var(--blue); }
+    .lightbox-caption { margin-top: 15px; color: var(--sub); font-size: 1rem; font-weight: bold; }
+    
+    @media (max-width: 639px) { .gallery-triggers { grid-template-columns: 1fr; } .prev-btn, .next-btn { padding: 10px; font-size: 18px; } }
   </style>
 </head>
 <body>
@@ -32,7 +55,7 @@
     <section class="section hero">
       <div>
         <span class="eyebrow">Built for freelancers, agencies, and lead gen teams</span>
-        <h2>Client Hunter Pro ফ্রিল্যান্সারদের জন্য সবচেয়ে পাওয়ারফুল এবং স্মার্ট ক্লায়েন্ট হান্টিং সলিউশন।</h2>
+        <h2>Client Hunter Pro ফ্রিল্যান্সারদের জন্য সবচেয়ে পাওয়ারফুল এবং স্মার্ট ক্লায়েন্ট হান্টিং সলিউশন।</h2>
         <p class="lead">The ultimate B2B lead generation and client hunting automation tool for freelancers and agencies. Extract thousands of high-paying direct clients instantly.</p>
         <div class="cta-row">
           <a class="btn primary" href="https://wa.me/8801646644839?text=I%20want%20the%2048-hour%20trial%20for%20Client%20Hunter%20Pro">Start 48-Hour Trial (৳49)</a>
@@ -52,11 +75,20 @@
     <section class="section">
       <h2 class="title">Trusted by 100+ Smart Freelancers</h2>
       <p class="subtitle">Join the community that achieved 9+ sales in a single day!</p>
-      <div class="proof-grid">
-        <div class="shot">Success Screenshots &amp; Earnings</div>
-        <div class="shot">Success Screenshots &amp; Earnings</div>
-        <div class="shot">Success Screenshots &amp; Earnings</div>
-        <div class="shot">Success Screenshots &amp; Earnings</div>
+      
+      <div class="gallery-triggers">
+        <div class="card gallery-card" onclick="openGallery('tools')">
+          <img src="tool-proof1.jpg" alt="Tools Payment Proof" class="gallery-thumb">
+          <h3>টুলস ক্রয়ের পেমেন্ট প্রুফ</h3>
+          <p>আমাদের ইউজারদের রিভিউ এবং পেমেন্ট স্ক্রিনশটগুলো দেখুন</p>
+          <span class="view-btn">View Gallery ↗</span>
+        </div>
+        <div class="card gallery-card" onclick="openGallery('clients')">
+          <img src="client-proof1.jpg" alt="Client Payment Proof" class="gallery-thumb">
+          <h3>সাকসেস ক্লায়েন্ট পেমেন্ট</h3>
+          <p>বিদেশি ক্লায়েন্টদের থেকে পাওয়া ডলারের পেমেন্ট প্রুফ</p>
+          <span class="view-btn">View Gallery ↗</span>
+        </div>
       </div>
     </section>
 
@@ -88,7 +120,7 @@
       <div class="pricing-grid">
         <div class="card price"><div class="tag">Trial Plan</div><div class="amount">৳49</div><div class="muted">48 Hours Access, Full Features.</div><a class="btn buy" href="https://wa.me/8801646644839?text=Trial%20Plan%20-%20Client%20Hunter%20Pro">Buy Now</a></div>
         <div class="card price"><div class="tag">Basic Plan</div><div class="amount">৳300</div><div class="muted">1 Month Access.</div><a class="btn buy" href="https://wa.me/8801646644839?text=Basic%20Plan%20-%20Client%20Hunter%20Pro">Buy Now</a></div>
-        <div class="card price popular"><div class="tag">Most Popular</div><div class="amount">৳600</div><div class="muted">3 Months Access.</div><a class="btn buy" href="https://wa.me/8801646644839?text=Standard%20Plan%20-%20Client%20Hunter%20Pro">Buy Now</a></div>
+        <div class="card price popular"><div class="tag">Most Popular</div><div class="amount">৳500</div><div class="muted">3 Months Access.</div><a class="btn buy" href="https://wa.me/8801646644839?text=Standard%20Plan%20-%20Client%20Hunter%20Pro">Buy Now</a></div>
         <div class="card price"><div class="tag">Pro Plan</div><div class="amount">৳1000</div><div class="muted">6 Months Access.</div><a class="btn buy" href="https://wa.me/8801646644839?text=Pro%20Plan%20-%20Client%20Hunter%20Pro">Buy Now</a></div>
       </div>
     </section>
@@ -98,5 +130,71 @@
       <div class="muted">Premium dark conversion landing page</div>
     </footer>
   </div>
+  
+  <div id="lightboxModal" class="lightbox">
+    <span class="close-lightbox" onclick="closeGallery()">&times;</span>
+    <div class="lightbox-content-wrapper">
+      <img class="lightbox-img" id="lightboxImage" src="">
+      <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+    <a class="prev-btn" onclick="changeImage(-1)">&#10094;</a>
+    <a class="next-btn" onclick="changeImage(1)">&#10095;</a>
+  </div>
+
+  <script>
+    // 📸 এখানে আপনার গিটহাবে আপলোড করা ছবিগুলোর আসল নাম দিন
+    // আপনি চাইলে কমা (,) দিয়ে দিয়ে নিচে ২০-৩০টা ছবির নামও দিতে পারবেন।
+    const imageGalleries = {
+      tools: [
+        'tool-proof1.jpg', 
+        'tool-proof2.jpg',
+        'tool-proof3.jpg'
+      ],
+      clients: [
+        'client-proof1.jpg', 
+        'client-proof2.jpg',
+        'client-proof3.jpg'
+      ]
+    };
+
+    let currentArray = [];
+    let currentIndex = 0;
+
+    function openGallery(type) {
+      currentArray = imageGalleries[type];
+      if (!currentArray || currentArray.length === 0) {
+        alert("শীঘ্রই ছবিগুলো যুক্ত করা হবে!");
+        return;
+      }
+      currentIndex = 0;
+      document.getElementById('lightboxModal').style.display = 'block';
+      updateLightboxImage();
+    }
+
+    function closeGallery() {
+      document.getElementById('lightboxModal').style.display = 'none';
+    }
+
+    function changeImage(direction) {
+      currentIndex += direction;
+      if (currentIndex >= currentArray.length) { currentIndex = 0; }
+      if (currentIndex < 0) { currentIndex = currentArray.length - 1; }
+      updateLightboxImage();
+    }
+
+    function updateLightboxImage() {
+      const imgElement = document.getElementById('lightboxImage');
+      const captionElement = document.getElementById('lightboxCaption');
+      
+      imgElement.src = currentArray[currentIndex];
+      captionElement.innerText = `Image ${currentIndex + 1} of ${currentArray.length}`;
+    }
+
+    // ব্যাকগ্রাউন্ডে ক্লিক করলে পপআপ কেটে যাবে
+    window.onclick = function(event) {
+      let modal = document.getElementById('lightboxModal');
+      if (event.target === modal) { closeGallery(); }
+    }
+  </script>
 </body>
 </html>
