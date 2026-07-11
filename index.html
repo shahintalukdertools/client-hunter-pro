@@ -27,7 +27,7 @@
     .gallery-card:hover { border-color: var(--blue); box-shadow: 0 10px 30px rgba(56,189,248,.2); }
     .view-btn { display: inline-block; margin-top: 15px; color: var(--blue); font-size: 0.9rem; font-weight: bold; background: rgba(56,189,248,.1); padding: 6px 12px; border-radius: 8px; }
     
-    /* 🔥 Thumbnail Image Style (FIXED for Tall Screenshots) */
+    /* 🔥 Thumbnail Image Style */
     .gallery-thumb { width: 100%; height: 220px; object-fit: contain; object-position: center; border-radius: 12px; margin-bottom: 15px; border: 1px solid rgba(56,189,248,.3); transition: 0.3s; background: rgba(0,0,0,0.25); padding: 5px; }
     .gallery-card:hover .gallery-thumb { border-color: var(--blue); transform: scale(1.02); }
 
@@ -76,17 +76,15 @@
       <h2 class="title">Trusted by 100+ Smart Freelancers</h2>
       <p class="subtitle">Join the community that achieved 9+ sales in a single day!</p>
       
-      <!-- 🔥 New Gallery Triggers added here (WITH IMAGES) -->
+      <!-- 🔥 Gallery Triggers -->
       <div class="gallery-triggers">
         <div class="card gallery-card" onclick="openGallery('tools')">
-          <!-- 🔥 এখানে প্রথম ছবিটা শো করবে -->
           <img src="tool-proof1.jpg" alt="Tools Payment Proof" class="gallery-thumb">
           <h3>টুলস ক্রয়ের পেমেন্ট প্রুফ</h3>
           <p>আমাদের ইউজারদের রিভিউ এবং পেমেন্ট স্ক্রিনশটগুলো দেখুন</p>
           <span class="view-btn">View Gallery ↗</span>
         </div>
         <div class="card gallery-card" onclick="openGallery('clients')">
-          <!-- 🔥 এখানে প্রথম ছবিটা শো করবে -->
           <img src="client-proof1.jpg" alt="Client Payment Proof" class="gallery-thumb">
           <h3>সাকসেস ক্লায়েন্ট পেমেন্ট</h3>
           <p>বিদেশি ক্লায়েন্টদের থেকে পাওয়া ডলারের পেমেন্ট প্রুফ</p>
@@ -146,7 +144,7 @@
   </div>
 
   <script>
-    // 📸 আপনার আপলোড করা ১৬টি ছবির লিস্ট নিচে যুক্ত করা হলো
+    // 📸 আপলোড করা ছবিগুলোর লিস্ট 
     const imageGalleries = {
       tools: [
         'tool-proof1.jpg', 
@@ -167,7 +165,18 @@
         'tool-proof(16).jpg'
       ],
       clients: [
-        'client-proof1.jpg' // ক্লায়েন্ট পেমেন্টের ছবি থাকলে এখানে কমা দিয়ে দিয়ে অ্যাড করতে পারবেন
+        'client-proof1.jpg',
+        'client-proof (2).jpg',
+        'client-proof (3).jpg',
+        'client-proof (4).jpg',
+        'client-proof (5).jpg',
+        'client-proof (6).jpg',
+        'client-proof (7).jpg',
+        'client-proof (8).jpg',
+        'client-proof (9).jpg',
+        'client-proof (10).jpg',
+        'client-proof (11).jpg',
+        'client-proof (12).jpg'
       ]
     };
 
