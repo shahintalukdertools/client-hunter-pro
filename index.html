@@ -76,14 +76,17 @@
       <h2 class="title">Trusted by 100+ Smart Freelancers</h2>
       <p class="subtitle">Join the community that achieved 9+ sales in a single day!</p>
       
+      <!-- 🔥 New Gallery Triggers added here (WITH IMAGES) -->
       <div class="gallery-triggers">
         <div class="card gallery-card" onclick="openGallery('tools')">
+          <!-- 🔥 এখানে প্রথম ছবিটা শো করবে -->
           <img src="tool-proof1.jpg" alt="Tools Payment Proof" class="gallery-thumb">
           <h3>টুলস ক্রয়ের পেমেন্ট প্রুফ</h3>
           <p>আমাদের ইউজারদের রিভিউ এবং পেমেন্ট স্ক্রিনশটগুলো দেখুন</p>
           <span class="view-btn">View Gallery ↗</span>
         </div>
         <div class="card gallery-card" onclick="openGallery('clients')">
+          <!-- 🔥 এখানে প্রথম ছবিটা শো করবে -->
           <img src="client-proof1.jpg" alt="Client Payment Proof" class="gallery-thumb">
           <h3>সাকসেস ক্লায়েন্ট পেমেন্ট</h3>
           <p>বিদেশি ক্লায়েন্টদের থেকে পাওয়া ডলারের পেমেন্ট প্রুফ</p>
@@ -131,6 +134,7 @@
     </footer>
   </div>
   
+  <!-- 🔥 Image Gallery Lightbox Modal -->
   <div id="lightboxModal" class="lightbox">
     <span class="close-lightbox" onclick="closeGallery()">&times;</span>
     <div class="lightbox-content-wrapper">
@@ -141,11 +145,12 @@
     <a class="next-btn" onclick="changeImage(1)">&#10095;</a>
   </div>
 
-// 📸 আপনার আপলোড করা ১৬টি ছবির লিস্ট
+  <script>
+    // 📸 আপনার আপলোড করা ১৬টি ছবির লিস্ট নিচে যুক্ত করা হলো
     const imageGalleries = {
       tools: [
         'tool-proof1.jpg', 
-        'tool-proof 2.jpg', // বিঃদ্র: আপনার আপলোড করা এই ফাইলে একটা স্পেস আছে, তাই নামটা এভাবেই দিলাম
+        'tool-proof 2.jpg',
         'tool-proof(3).jpg',
         'tool-proof(4).jpg',
         'tool-proof(5).jpg',
@@ -162,9 +167,10 @@
         'tool-proof(16).jpg'
       ],
       clients: [
-        'client-proof1.jpg' // এখানে আপনার ক্লায়েন্ট পেমেন্টের ছবিগুলোর নাম দিবেন (যদি আরও থাকে কমা দিয়ে যোগ করবেন)
+        'client-proof1.jpg' // ক্লায়েন্ট পেমেন্টের ছবি থাকলে এখানে কমা দিয়ে দিয়ে অ্যাড করতে পারবেন
       ]
     };
+
     let currentArray = [];
     let currentIndex = 0;
 
